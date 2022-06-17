@@ -1,0 +1,24 @@
+.Ishop{
+    width: 400px;
+    height: auto;
+}
+.Ishop .Foto{
+    width: 50px;
+    height: 50px;
+}
+.Ishop .ShopTab{
+    border: black 3px;
+    width: 400px;
+    padding: 3px 7px;
+    background-color: #F0F0F0;
+
+    
+}
+.Ishop .ShopName{
+    font-size: 30px;
+    margin-bottom: 30px;
+}
+.Ishop .ShopProdName{
+    font-weight: bold;
+}
+
