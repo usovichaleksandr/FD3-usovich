@@ -38,8 +38,9 @@ var Filter = React.createClass({
     inerSort: function(EO){
         var inNode=EO.target.value;
         var sortMass;
-        if(inNode){                
-        sortMass=this.state.deffMassWords.filter(v=> v.indexOf(inNode)>=0);
+        if(inNode){ 
+          var a= JSON.parse(JSON.stringify(this.props.words));               
+        sortMass=a.filter(v=> v.indexOf(inNode)>=0);
         this.setState({deffMassWords:sortMass, deffSort:inNode });   
         }else if(inNode=="") {
           sortMass=JSON.parse(JSON.stringify(this.props.words));
