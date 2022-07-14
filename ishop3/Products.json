@@ -1,0 +1,5 @@
+ [
+    {"text":"яблоко","code":1,"count":200,"image":"components/apple.jpg"},
+    {"text":"виноград","code":2,"count":100,"image":"components/grape.jpg"},
+    {"text":"арбуз","code":3,"count":300,"image":"components/watermelon.jpg"}
+]
