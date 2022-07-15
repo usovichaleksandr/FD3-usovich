@@ -7,12 +7,12 @@ class IshopForm extends React.Component {
         workMode: PropTypes.number, //может быть null        
         selectedProductText: PropTypes.string,
         selectedProductCount: PropTypes.number,
-        cbAddProductName: PropTypes.func.isRequired,
+        cbAddProductName: PropTypes.func.isRequired, 
         cbaddProductCount: PropTypes.func.isRequired, 
         newAddedProductName: PropTypes.string, // имя нового введенного товара 
         newAddedProductCount: PropTypes.number, //колличество нового введенного товара
-        cbSaveNewProduct: PropTypes.func.isRequired, 
-        cansel: PropTypes.func.isRequired,
+        cbSaveNewProduct: PropTypes.func.isRequired, // колбэк функции сохранить
+        cansel: PropTypes.func.isRequired,// колбэк функции отмена
         selectedProduct: PropTypes.number,        
     };
     
@@ -24,14 +24,14 @@ class IshopForm extends React.Component {
     addProductCount=(EO)=>{
         this.props.cbaddProductCount(Number(EO.target.value));
     }
-    saveNewProduct=()=>{
-        if(this.props.newAddedProductCount&&this.props.newAddedProductName)       
-        this.props.cbSaveNewProduct(this.props.newAddedProductName, this.props.newAddedProductCount,
-            this.props.selectedProduct);        
+    saveNewProduct=()=>{      
+        this.props.cbSaveNewProduct();      
+               
     }   
     cansel=()=>{
         this.props.cansel();
     }
+    // валидация полей формы производится только на предмет отсутствия введенных данных
     invalid=(inputValid)=>{        
          if(!inputValid)  return' строка не заполнена ';        
     }

@@ -34,7 +34,7 @@ class IshopProduckt extends React.Component{
       } 
     }
     edit = (EO) =>{
-      this.props.edit(this.props.code);
+      this.props.edit(this.props.code, this.props.text, this.props.count, this.props.image);
       EO.stopPropagation()
     }
 

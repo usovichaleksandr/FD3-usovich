@@ -28,8 +28,9 @@ class IshopBlock extends React.Component{
     selectedProductCount: null, // щстаток товара выбранного щелчком
     newAddedProductName:'', // имя нового введенного товара
     newAddedProductCount:'', // колличество нового введенного товара
+    selectedProductImage:null, // картинка выбранного для изменения товара
   } 
-  
+  // функия просмотра информации о товаре, в режиме создания нового товара и при заполненых полях формы недоступна
   select= (newSelectProductCde,selectText, selectCount )=>{
     if(this.state.newAddedProductCount||this.state.newAddedProductName||(this.state.workMode==2)){
       return
@@ -40,7 +41,7 @@ class IshopBlock extends React.Component{
                   selectedProductCount:selectCount, });  
     }               
   }
-
+// функция удаления товара, при заполненых полях формы и врежимах изменения и создания товара недоступна 
   delete= (selectedProductCode) => {
     if(this.state.newAddedProductCount||this.state.newAddedProductName||
       this.state.workMode==3||this.state.workMode==2){
@@ -56,14 +57,17 @@ class IshopBlock extends React.Component{
     }
    }
   }
-
-  editProdut= (selctProductcode)=>{
-    if(this.state.workMode==2){
+// функция изменения тована, при заполненых полях формы и режиме создания товара недоступна 
+  editProdut= (selctProductCode,  selectedProductText, selectedProductCount, selectedProductImage)=>{
+    if(this.state.workMode==2||this.state.newAddedProductCount||this.state.newAddedProductName){
       return
     }else    this.setState({workMode:3,
-                            selectedProduct:selctProductcode})
+                            selectedProduct:selctProductCode,
+                            selectedProductImage: selectedProductImage,
+                            selectedProductText:selectedProductText,
+                            selectedProductCount:selectedProductCount, })
   }
-
+// функция добавления товара, в режиме редактирования недоступна 
   addProduct =()=>{
     if(this.state.workMode==3){
       return
@@ -79,18 +83,31 @@ class IshopBlock extends React.Component{
   addProductCount=(countNode)=>{
     this.setState({newAddedProductCount: countNode});
   }
-  SaveNewProduct=(saveName, saveCount, saveCode)=>{
+
+  //функция сохранения товара
+  SaveNewProduct=()=>{
+    if(this.state.newAddedProductCount&&this.state.newAddedProductName){
+      
+    
     if(this.state.workMode==2){
-    let a={text:saveName, count: saveCount, code: Math.random(),};
+    let a={text: this.state.newAddedProductName, count: this.state.newAddedProductCount, code: Math.random(),};
     let newListProducts=[...this.state.startListProducts, a];
     this.setState({startListProducts: newListProducts,
                     newAddedProductName:'',
                     newAddedProductCount:'',});
     }
     if(this.state.workMode==3){
-          
+    let a = {text: this.state.newAddedProductName, count:this.state.newAddedProductCount,
+             code:this.state.selectedProduct, image:this.state.selectedProductImage};
+    let newListProducts=[...this.state.startListProducts.filter(
+      v=> v.code!=this.state.selectedProduct
+     ), a];
+    this.setState({startListProducts: newListProducts,
+      newAddedProductName:'',
+      newAddedProductCount:'',});               
     }
-
+  }
+  
   }
   cansel=()=>{
     this.setState({workMode:null,
