@@ -17,7 +17,7 @@ class BR2JSX extends React.Component{
         let a=[];
         for(let i=0; i<b.length;i++){
             if(i){
-                a.push(<br/>);
+                a.push(<br key={i}/>);
             }
             a.push(b[i]);
         }

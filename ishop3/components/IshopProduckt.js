@@ -46,10 +46,10 @@ class IshopProduckt extends React.Component{
           <td className='Count'>{this.props.count}</td>
           <td><img src={this.props.image } className='Foto' /></td>
           <td>{(this.props.workMode==2)?
-            <input type='button' disabled='true' value='edit' onClick={this.edit}/>:
+            <input type='button' disabled={true} value='edit' onClick={this.edit}/>:
             <input type='button' value='edit' onClick={this.edit}/>}</td>
           <td>{(this.props.workMode==2||this.props.workMode==3)?
-          <input type='button' disabled='true' value='delete' onClick={this.delete}/>:
+          <input type='button' disabled={true} value='delete' onClick={this.delete}/>:
           <input type='button' value='delete' onClick={this.delete}/>}</td> 
         </tr>
       )     

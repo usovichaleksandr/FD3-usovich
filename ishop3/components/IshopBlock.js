@@ -94,17 +94,21 @@ class IshopBlock extends React.Component{
     let newListProducts=[...this.state.startListProducts, a];
     this.setState({startListProducts: newListProducts,
                     newAddedProductName:'',
-                    newAddedProductCount:'',});
+                    newAddedProductCount:'',
+                    workMode:null});
     }
     if(this.state.workMode==3){
-    let a = {text: this.state.newAddedProductName, count:this.state.newAddedProductCount,
-             code:this.state.selectedProduct, image:this.state.selectedProductImage};
-    let newListProducts=[...this.state.startListProducts.filter(
-      v=> v.code!=this.state.selectedProduct
-     ), a];
-    this.setState({startListProducts: newListProducts,
+    let listCopy=[...this.state.startListProducts];
+    for(let i=0;i<listCopy.length; i++){
+      if(listCopy[i].code==this.state.selectedProduct){
+        listCopy[i].text=this.state.newAddedProductName;
+        listCopy[i].count=this.state.newAddedProductCount;
+      }
+    }
+    this.setState({startListProducts: listCopy,
       newAddedProductName:'',
-      newAddedProductCount:'',});               
+      newAddedProductCount:'',
+      workMode:null,});               
     }
   }
   
@@ -148,7 +152,7 @@ class IshopBlock extends React.Component{
             </thead>
             <tbody>{allProducts}</tbody>
           </table>{(this.state.workMode==3||this.state.workMode==2)?
-          <input type='button' disabled='true' value='new product' onClick={this.addProduct}/>:
+          <input type='button' disabled={true} value='new product' onClick={this.addProduct}/>:
           <input type='button' value='new product' onClick={this.addProduct}/> }
           <IshopForm key={this.state.workMode}
             workMode={this.state.workMode} 
