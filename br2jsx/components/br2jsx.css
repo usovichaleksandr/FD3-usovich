@@ -1,0 +1,11 @@
+#container{
+    margin: 8px;
+    text-align: center;
+    width: 100px;
+    height: 100px;
+    background-color: gray;
+    color: white;
+}
+body{
+    display: block;
+}
