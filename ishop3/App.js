@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 
 import IshopBlock from './components/IshopBlock';
 
-let shopName='магази фруктов ';
+let shopName='Магазин фруктов ';
 let ourProducts=require('./Products.json');
 
 ReactDOM.render(
