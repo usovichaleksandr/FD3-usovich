@@ -95,7 +95,8 @@ class IshopBlock extends React.Component{
     this.setState({startListProducts: newListProducts,
                     newAddedProductName:'',
                     newAddedProductCount:'',
-                    workMode:null});
+                    workMode:null,
+                    selectedProduct:null,});
     }
     if(this.state.workMode==3){
     let listCopy=[...this.state.startListProducts];
@@ -108,7 +109,8 @@ class IshopBlock extends React.Component{
     this.setState({startListProducts: listCopy,
       newAddedProductName:'',
       newAddedProductCount:'',
-      workMode:null,});               
+      workMode:null,
+      selectedProduct:null,});               
     }
   }
   
