@@ -59,13 +59,13 @@ class IshopBlock extends React.Component{
   }
 // функция изменения тована, при заполненых полях формы и режиме создания товара недоступна 
   editProdut= (selctProductCode,  selectedProductText, selectedProductCount, selectedProductImage)=>{
-    if(this.state.workMode==2||this.state.newAddedProductCount||this.state.newAddedProductName){
+    if(this.state.workMode==2){
       return
     }else    this.setState({workMode:3,
                             selectedProduct:selctProductCode,
                             selectedProductImage: selectedProductImage,
-                            selectedProductText:selectedProductText,
-                            selectedProductCount:selectedProductCount, })
+                            newAddedProductName:selectedProductText,
+                            newAddedProductCount:selectedProductCount, })
   }
 // функция добавления товара, в режиме редактирования недоступна 
   addProduct =()=>{
@@ -115,7 +115,7 @@ class IshopBlock extends React.Component{
                    newAddedProductCount:'',
                   selectedProduct:null},
       );
-  }
+  } 
 
   render () {  
       
@@ -147,8 +147,9 @@ class IshopBlock extends React.Component{
               </tr>
             </thead>
             <tbody>{allProducts}</tbody>
-          </table>
-          <input type='button' value='new product' onClick={this.addProduct}/>
+          </table>{(this.state.workMode==3||this.state.workMode==2)?
+          <input type='button' disabled='true' value='new product' onClick={this.addProduct}/>:
+          <input type='button' value='new product' onClick={this.addProduct}/> }
           <IshopForm key={this.state.workMode}
             workMode={this.state.workMode} 
             selectedProductText={this.state.selectedProductText}

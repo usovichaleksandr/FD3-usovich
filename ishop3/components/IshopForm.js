@@ -51,8 +51,9 @@ class IshopForm extends React.Component {
                                 value={this.props.newAddedProductCount} style={{width: '200px' }}/>
                                 <span className='Invalid'>{this.invalid(this.props.newAddedProductCount)}</span>
                        </div>                       
-                       <div>
-                            <input type='button' value='save' onClick={this.saveNewProduct}/>
+                       <div>{(this.props.newAddedProductCount&&this.props.newAddedProductName)?
+                            <input type='button' value='save' onClick={this.saveNewProduct}/>:
+                            <input type='button'disabled='true' value='save' onClick={this.saveNewProduct}/>}
                             <input type='button' value='cancel' onClick={this.cansel}/>
                        </div> 
         </Fragment>
