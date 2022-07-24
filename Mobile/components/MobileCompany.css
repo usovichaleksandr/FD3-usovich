@@ -1,0 +1,22 @@
+﻿.MobileCompany
+{
+  border: double gray 3px;
+  width: 800px;  
+  padding: 3px 7px;
+  background-color: cyan;
+}
+
+.MobileCompany td{
+  width: 110px;
+}
+.MobileCompany .InputVal{
+  width: 250px;
+}
+.MobileCompany .InputName{
+  width: 150px;
+  display: inline-block;
+}
+
+
+
+
