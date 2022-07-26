@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import {clientEvents} from './events';
 
-import './MobileClient.css';
+import './MobileCompany.css';
 
 class MobileClient extends React.PureComponent {
 
