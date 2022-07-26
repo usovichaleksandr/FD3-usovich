@@ -1,0 +1,6 @@
+.wordsArea{
+    width: 200px;
+    height: 100px;
+    overflow: visible auto;
+    border: solid 1px black;
+}
