@@ -1,0 +1,14 @@
+.Gridlist{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    grid-gap: 2vw;
+}
+/* .Gridlist>ul{
+    font-size: 20px;
+    padding: .5em;
+    background: silver;
+    text-align: center;
+} */
+li {
+    list-style-type: none; /* Убираем маркеры */
+   }

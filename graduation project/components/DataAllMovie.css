@@ -1,0 +1,28 @@
+.posterUrl{
+    width: 90px;
+    height: inherit;
+}
+.linkUrl{    
+    position: absolute; bottom: 0;
+    left: 40%;
+}
+.UlLinkUrl{
+    height: 120px;       
+position: relative;
+font-size: 20px;
+padding: .5em;
+background:aqua;
+text-align: center;
+
+}
+.title{
+    height: 80px; ;
+}
+.UlLinkUrlSelect{
+    height: 120px;       
+    position: relative;
+    font-size: 20px;
+    padding: .5em;
+    background:yellowgreen;
+    text-align: center;
+}
